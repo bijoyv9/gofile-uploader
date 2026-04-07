@@ -3,7 +3,6 @@
 # Check argument
 if [[ $# -eq 0 ]]; then
     echo "ERROR: No File Specified!"
-    exit 1
 fi
 
 FILE="$1"
@@ -11,13 +10,11 @@ FILE="$1"
 # Validate file
 if [[ ! -f "$FILE" ]]; then
     echo "ERROR: File not found: $FILE"
-    exit 1
 fi
 
 # Check jq
 command -v jq >/dev/null || {
     echo "ERROR: jq not installed. Install via: sudo apt install jq"
-    exit 1
 }
 
 echo "📁 File: $FILE"
